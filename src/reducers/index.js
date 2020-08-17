@@ -1,8 +1,7 @@
 let defaultState = {
-  title: "COVID Risk Comfort Zone",
-  image: "https://imgs.xkcd.com/comics/covid_risk_comfort_zone.png",
-  alt:
-    "I'm like a vampire, except I'm not crossing that threshold even if you invite me.",
+  title: "here is where the title would go",
+  image: "here is where an image would go",
+  alt: "this is an alternate",
 };
 const mainReducer = (state = defaultState, action) => {
   switch (action.type) {

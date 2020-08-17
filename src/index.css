@@ -3,3 +3,11 @@
   justify-content: space-evenly;
   flex-direction: column;
 }
+
+.App {
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
