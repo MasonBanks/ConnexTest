@@ -29,12 +29,7 @@ class Box extends React.Component {
     );
   }
   componentDidMount() {
-    console.log("component mounted");
     this.props.onLoad();
-  }
-  requestComic(id) {
-    console.log(id);
-    this.props.handleClick(id);
   }
 }
 

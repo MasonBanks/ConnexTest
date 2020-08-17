@@ -11,3 +11,11 @@
   justify-content: space-evenly;
   flex-direction: column;
 }
+
+.ButtonMenu {
+  padding-top: 30px;
+  display: flex;
+  margin: auto;
+  width: fit-content;
+  flex-direction: column;
+}

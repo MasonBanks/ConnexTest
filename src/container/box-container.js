@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions/index.js";
 import Box from "../components/box.js";
-import { Typography, Container } from "@material-ui/core";
+import { Typography, Container, Button, TextField } from "@material-ui/core";
+
 class BoxCon extends React.Component {
   render() {
     const styles = {
@@ -14,7 +15,14 @@ class BoxCon extends React.Component {
       title: {
         textAlign: "center",
       },
+      input: {
+        paddingBottom: "5px",
+      },
     };
+    function findSpecificComic(arg) {
+      console.log(`${arg} was clicked`);
+      actionCreators.loadSpecificComic(125);
+    }
     return (
       <Container styles={styles.comic}>
         <Typography variant="h4" style={styles.title}>
@@ -25,6 +33,25 @@ class BoxCon extends React.Component {
           onLoad={this.props.loadComic}
           props={this.props}
         ></Box>
+        <Container className="ButtonContainer">
+          <form action="" className="ButtonMenu">
+            <TextField
+              style={styles.input}
+              variant="outlined"
+              type="number"
+              label="Go to comic by ID"
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={() => {
+                findSpecificComic("clicked");
+              }}
+            >
+              Let's Go
+            </Button>
+          </form>
+        </Container>
       </Container>
     );
   }

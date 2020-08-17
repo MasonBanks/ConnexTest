@@ -11,17 +11,19 @@ export function loadComic() {
 }
 
 export function loadSpecificComic(id) {
+  console.log(id);
   return (dispatch) => {
-    try {
-      return axios
-        .get(`${proxy}http://xkcd.com/${id}/info.0.json`)
-        .then((response) => {
-          dispatch(changeComic(response.data));
-        });
-    } catch (error) {
-      console.log(error.response);
-      return error.response;
-    }
+    // try {
+    return axios
+      .get(`${proxy}http://xkcd.com/${id}/info.0.json`)
+      .then((response) => {
+        console.log(response);
+        dispatch(changeComic(response.data));
+      });
+    // } catch (error) {
+    //   console.log(error.response);
+    //   return error.response;
+    // }
   };
 }
 
@@ -31,5 +33,6 @@ export function changeComic(comicData) {
     title: comicData.title,
     image: comicData.img,
     alt: comicData.alt,
+    num: comicData.num,
   };
 }

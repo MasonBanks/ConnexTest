@@ -1,7 +1,7 @@
 let defaultState = {
   title: "here is where the title would go",
   image: "here is where an image would go",
-  alt: "this is an alternate",
+  alt: "this is an alternate text",
 };
 const mainReducer = (state = defaultState, action) => {
   switch (action.type) {
