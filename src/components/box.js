@@ -1,27 +1,29 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
+import { Card, CardContent, CardMedia, Button } from "@material-ui/core";
 
 class Box extends React.Component {
   render() {
+    console.log(this.props, "this props");
     return (
-      <Card className="wrapper">
-        <CardContent
-          className="box"
-          style={{
-            backgroundColor: `${this.props.color}`,
-          }}
-        >
-          <Button
-            onClick={() => {
-              this.props.handleClick();
-            }}
-          >
-            Change Color
-          </Button>
-        </CardContent>
-      </Card>
+      <div>
+        <h1>{this.props.title}</h1>
+        <CardMedia
+          style={{ height: "300px" }}
+          component="img"
+          src={this.props.image}
+        />
+        <Card className="wrapper">
+          <CardContent className="box">
+            <Button
+              onClick={() => {
+                this.props.handleClick();
+              }}
+            >
+              Change Comic
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 }

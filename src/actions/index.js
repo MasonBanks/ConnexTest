@@ -1,18 +1,20 @@
 import axios from "axios";
 
-export function loadColor() {
+export function loadComic() {
   return (dispatch) => {
     return axios
-      .get("http://www.colr.org/json/color/random")
+      .get("https://cors-anywhere.herokuapp.com/http://xkcd.com/info.0.json")
       .then((response) => {
-        dispatch(changeColor(`#${response.data.new_color}`));
+        dispatch(changeComic(response.data));
       });
   };
 }
 
-export function changeColor(color) {
+export function changeComic(comicData) {
   return {
-    type: "CHANGE_COLOR",
-    color: color,
+    type: "CHANGE_COMIC",
+    title: comicData.title,
+    image: comicData.img,
+    alt: comicData.alt,
   };
 }

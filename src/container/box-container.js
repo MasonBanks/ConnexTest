@@ -5,9 +5,7 @@ import Box from "../components/box.js";
 
 class BoxCon extends React.Component {
   render() {
-    return (
-      <Box handleClick={this.props.loadColor} color={this.props.color}></Box>
-    );
+    return <Box handleClick={this.props.loadComic}></Box>;
   }
 }
 
