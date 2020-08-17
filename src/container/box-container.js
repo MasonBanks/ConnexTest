@@ -5,7 +5,13 @@ import Box from "../components/box.js";
 
 class BoxCon extends React.Component {
   render() {
-    return <Box handleClick={this.props.loadComic}></Box>;
+    return (
+      <Box
+        handleClick={this.props.loadComic}
+        onLoad={this.props.loadComic}
+        props={this.props}
+      ></Box>
+    );
   }
 }
 

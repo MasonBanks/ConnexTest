@@ -1,13 +1,17 @@
 let defaultState = {
-  color: "red",
+  title: "COVID Risk Comfort Zone",
+  image: "https://imgs.xkcd.com/comics/covid_risk_comfort_zone.png",
+  alt:
+    "I'm like a vampire, except I'm not crossing that threshold even if you invite me.",
 };
 const mainReducer = (state = defaultState, action) => {
-  console.log(action);
   switch (action.type) {
-    case "CHANGE_COLOR":
+    case "CHANGE_COMIC":
       return {
         ...state,
-        color: action.color,
+        title: action.title,
+        image: action.image,
+        alt: action.alt,
       };
     default:
       return {

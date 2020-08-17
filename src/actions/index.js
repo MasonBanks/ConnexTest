@@ -1,12 +1,27 @@
 import axios from "axios";
 
+const proxy = "https://cors-anywhere.herokuapp.com/";
+
 export function loadComic() {
   return (dispatch) => {
-    return axios
-      .get("https://cors-anywhere.herokuapp.com/http://xkcd.com/info.0.json")
-      .then((response) => {
-        dispatch(changeComic(response.data));
-      });
+    return axios.get(`${proxy}http://xkcd.com/info.0.json`).then((response) => {
+      dispatch(changeComic(response.data));
+    });
+  };
+}
+
+export function loadSpecificComic(id) {
+  return (dispatch) => {
+    try {
+      return axios
+        .get(`${proxy}http://xkcd.com/${id}/info.0.json`)
+        .then((response) => {
+          dispatch(changeComic(response.data));
+        });
+    } catch (error) {
+      console.log(error.response);
+      return error.response;
+    }
   };
 }
 
