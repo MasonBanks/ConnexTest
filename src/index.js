@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import BoxCon from "./container/box-container.js";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import reducers from "./reducers/index.js";
 import "./index.css";
-// import { createStore, applyMiddleware } from "redux";
+
+let store = createStore(reducers, applyMiddleware(thunk));
 
 class App extends React.Component {
   render() {
@@ -11,8 +16,10 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );

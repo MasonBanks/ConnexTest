@@ -1,14 +1,14 @@
 let defaultState = {
   color: "red",
 };
-const mainReducer = (state = defualteState, action) => {
+const mainReducer = (state = defaultState, action) => {
+  console.log(action);
   switch (action.type) {
     case "CHANGE_COLOR":
       return {
         ...state,
         color: action.color,
       };
-      break;
     default:
       return {
         ...state,
